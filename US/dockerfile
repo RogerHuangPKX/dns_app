@@ -1,0 +1,10 @@
+FROM python:3.9-slim
+
+WORKDIR /usr/src/app
+
+RUN apt-get update && apt-get install -y netcat && apt-get clean
+
+# 复制代码到容器中
+COPY as.py ./
+
+CMD [ "python", "./as.py" ]
